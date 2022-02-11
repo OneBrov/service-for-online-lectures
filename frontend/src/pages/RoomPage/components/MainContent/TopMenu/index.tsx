@@ -12,7 +12,6 @@ export const TopMenu = () => {
   const [steamEnabled, setStreamEnabled] = React.useState<boolean>(false)
   const [microphoneEnabled, setMicrophoneEnabled] = React.useState<boolean>(false)
   const [cameraEnabled, setCameraEnabled] = React.useState<boolean>(false)
-
   const rtc = React.useContext(WebRTCContext)
   const publisher = rtc?.publisher || undefined
 
@@ -35,12 +34,10 @@ export const TopMenu = () => {
     if (streamAlreadyRun && !steamEnabled) {
       alert('В данный момент кто-то уже ведет трансляюцию экрана')
     }
-
     if (rtc?.toggleScreenSharing) {
       rtc?.toggleScreenSharing(!steamEnabled)
       setStreamEnabled(prev => !prev)
     }
-   
   }
 
   const ToggleButtons = [
@@ -71,16 +68,20 @@ export const TopMenu = () => {
   ]
 
   return (
-    <Box sx={{display: 'flex', justifyContent: 'space-between'}} >
-     
+    <Box sx={{ display: 'flex', justifyContent: 'space-between' }} >
       <Link href='/rooms'>
         <Tooltip title='Вернуться на страницу со списком комнат'>
           <IconButton >
-            <img src='/svg/back.svg' width={48} height={48} alt='Return to main menu'/>     
+            <img 
+              src='/svg/back.svg' 
+              width={48} 
+              height={48} 
+              alt='Return to main menu'
+            />     
           </IconButton>
         </Tooltip>
       </Link>
-      <Box sx={{display: 'flex'}}>
+      <Box sx={{ display: 'flex' }}>
         {ToggleButtons.map((b) => 
           <ActionButton 
             key={b.activeTooltip}

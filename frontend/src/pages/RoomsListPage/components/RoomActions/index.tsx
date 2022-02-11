@@ -11,7 +11,6 @@ interface RoomActionsProps {
 export const RoomActions:React.FC<RoomActionsProps> = ({
   searchWord, setSearchWord
 }) => {
-
   const [roomCreationOpen, setRoomCreationOpen] = React.useState<boolean>(false)
   const authContext = React.useContext(AuthContext)
 
@@ -54,7 +53,6 @@ export const RoomActions:React.FC<RoomActionsProps> = ({
             label='Комната или организатор' 
           />
         </Tooltip>
-        
       </Box>
       { authContext.isAuth &&
       <>
@@ -73,8 +71,6 @@ export const RoomActions:React.FC<RoomActionsProps> = ({
         isOpen={roomCreationOpen} 
         onClose={closeRoomCreation}
       />
-     
-
     </Box>
   )
 }

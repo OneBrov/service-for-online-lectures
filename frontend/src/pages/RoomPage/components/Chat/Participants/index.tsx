@@ -19,17 +19,18 @@ export const Participants:React.FC<ParticipantsProps> = ({
   }, [users])
 
   return (
-      <Box sx={{ minHeight: '0',  flexDirection: 'column', width: '350px'}}>
+    <Box sx={{ minHeight: '0',  flexDirection: 'column', width: '350px'}}>
      
       <List dense sx={{flex:'1 1'}}
-       >
+      >
         {sortedUsers.map((user, index) => (
-          <ListItem  sx={{display: 'flex'}} key={`user-${user.socketId}-${user.username}`}>
+          <ListItem  
+            sx={{display: 'flex'}} 
+            key={`user-${user.socketId}-${user.username}`}
+          >
             <Typography width={'2em'} color={'primary'}>
               {index+1}.
             </Typography>
-          
-       
             <ListItemText  primary={user.username} />
           </ListItem>
         ))}

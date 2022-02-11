@@ -4,7 +4,6 @@ import  chatSlice  from './chatSlice'
 import thunkMiddleware, { ThunkAction } from 'redux-thunk'
 import usersSlice from './usersSlice'
 
-
 const store = configureStore({
   reducer: {
     chat: chatSlice,

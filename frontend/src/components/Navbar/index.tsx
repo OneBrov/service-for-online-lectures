@@ -55,6 +55,11 @@ export const Navbar = () => {
   const [isLoginOpen, setIsLoginOpen] = React.useState<boolean>(false)
   const authContext = React.useContext(AuthContext)
 
+  const handleCloseLogin = () => {
+    setIsLoginOpen(false)
+  }
+
+
   const RightButtons: { auth: NavLink, leave: NavLink} = {
     auth: {
       link: '',
@@ -82,7 +87,11 @@ export const Navbar = () => {
       >
         <Box display={'flex'} alignItems={'center'}  >
           {LeftLinks.map(linkItem => 
-            <Link style={{ textDecoration: 'none' }} to={linkItem.link} key={linkItem.text}>
+            <Link 
+              style={{ textDecoration: 'none' }} 
+              to={linkItem.link} 
+              key={linkItem.text}
+            >
               <IconButton {...linkItem}/>
             </Link>
           )}
@@ -97,7 +106,7 @@ export const Navbar = () => {
             </>
             : <IconButton {...RightButtons.auth}/>
           }
-          <LoginPage open={isLoginOpen} handleClose={()=>setIsLoginOpen(false)} />
+          <LoginPage open={isLoginOpen} handleClose={handleCloseLogin} />
         </Box>
       </Container> 
     </Box>

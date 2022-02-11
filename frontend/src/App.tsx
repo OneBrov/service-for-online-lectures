@@ -17,8 +17,7 @@ export const AuthContext = React.createContext<AuthContextProps>({
   username: ''
 })
 
-function App() {
-
+export const App = () => {
   const [isAuth, setIsAuth] = React.useState<boolean>(false)
   const [name, setName] = React.useState<string>('')
 
@@ -61,5 +60,3 @@ function App() {
     </Provider>
   )
 }
-
-export default App

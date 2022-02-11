@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './theme'
 import CssBaseline from '@mui/material/CssBaseline/CssBaseline'
+import { App } from './App'
 
 ReactDOM.render(
 

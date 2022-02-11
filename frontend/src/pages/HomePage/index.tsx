@@ -10,7 +10,11 @@ export const HomePage = () => {
         <Typography variant='h4' textAlign={'center'}>
             Classroom — сервис для проведения онлайн лекций.
         </Typography>
-        <Box display={'flex'} justifyContent={'center'} marginTop={5}>
+        <Box 
+          display={'flex'} 
+          justifyContent={'center'} 
+          marginTop={5}
+        >
           <img src='/svg/illustrations/call.svg' />
         </Box>
       </Box>

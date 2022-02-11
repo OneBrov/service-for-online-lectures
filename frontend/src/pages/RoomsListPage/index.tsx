@@ -7,23 +7,8 @@ import { RoomActions } from './components/RoomActions'
 import { RoomItem } from './components/RoomItem'
 import { RoomLoadingSkeleton } from './components/RoomLoadingSkeleton'
 
-
-
-// const mockRooms = [
-//   {name: 'Введение в программирование', subject: 'Програмирование', adminName: 'Евдокимов Д.Д.', userCount: 2,  roomId: '1'},
-//   {name: 'Введение в программирование', subject: 'Програмирование', adminName: 'Евдокимов Д.Д.', userCount: 2,  roomId: '1'},
-//   {name: 'Введение в программирование', subject: 'Програмирование', adminName: 'Евдокимов Д.Д.', userCount: 2,  roomId: '1'},
-//   {name: 'Введение в программирование', subject: 'Програмирование', adminName: 'Евдокимов Д.Д.', userCount: 2,  roomId: '1'},
-//   {name: 'Введение в программирование', subject: 'Програмирование', adminName: 'Евдокимов Д.Д.', userCount: 2,  roomId: '1'},
-//   {name: 'Введение в программирование', subject: 'Програмирование', adminName: 'Евдокимов Д.Д.', userCount: 2,  roomId: '1'},
-//   {name: 'Введение в программирование', subject: 'Програмирование', adminName: 'Евдокимов Д.Д.', userCount: 2,  roomId: '1'},
-//   {name: 'Введение в программирование', subject: 'Програмирование', adminName: 'Евдокимов Д.Д.', userCount: 2,  roomId: '1'},
-//   {name: 'Введение в программирование', subject: 'Програмирование', adminName: 'Евдокимов Д.Д.', userCount: 2,  roomId: '1'},
-// ]
-
 export const RoomsListPage = () => {
   const limit = 15
-
   const [page, setPage] = React.useState<number>(0)
   const [rooms, setRooms] = React.useState<Room[]>([])
   const [searchWord, setSearchWord] = React.useState<string>('')
@@ -35,7 +20,6 @@ export const RoomsListPage = () => {
     if (!hasMore || isLoading) return 
     getRoomsPage()
   }, [page])
-
 
   useDebouncedEffect(() => {
     replaceRooms()
@@ -65,7 +49,6 @@ export const RoomsListPage = () => {
   }
 
   const handleObserver = React.useCallback((entries) => {
-   
     const target = entries[0]
     if (target.isIntersecting) {
       setPage((prev) => prev + 1)
@@ -94,8 +77,6 @@ export const RoomsListPage = () => {
           flexDirection='column'
           flex='1 1'
         >
-
-    
           <Grid container spacing={3}>
             { isLoading && !rooms.length && 
               Array(9).fill(0).map((v, index) => 
@@ -112,9 +93,20 @@ export const RoomsListPage = () => {
               </Grid>
             )}
           </Grid>
-          <Typography marginTop={2} color='primary' textAlign={'center'} variant='h5' ref={loader}> {!hasMore && 'Больше комнат не найдено!'} </Typography>
+          <Typography 
+            ref={loader}
+            marginTop={2} 
+            color='primary' 
+            textAlign={'center'} 
+            variant='h5' 
+          > 
+            {!hasMore && 'Больше комнат не найдено!'} 
+          </Typography>
         </Box>
-        <RoomActions searchWord={searchWord} setSearchWord={setSearchWord} />
+        <RoomActions 
+          searchWord={searchWord} 
+          setSearchWord={setSearchWord} 
+        />
       </Box>
     </Container>
   )

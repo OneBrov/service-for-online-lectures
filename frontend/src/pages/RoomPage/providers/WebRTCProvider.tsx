@@ -29,11 +29,8 @@ export const WebRTCProvider:React.FC = ({ children }) => {
 
   const dispatch = useAppDispatch()
 
-
   const OPENVIDU_SERVER_URL = process.env.REACT_APP_WEBRTC_URL as string || 'https://' + window.location.hostname + ':4443'
   const OPENVIDU_SERVER_SECRET = process.env.REACT_APP_WEBRTC_SECRET as string || 'MY_SECRET'
-
-
 
   const { roomId } = useParams()
   const mySessionId = roomId
@@ -129,8 +126,7 @@ export const WebRTCProvider:React.FC = ({ children }) => {
               isTrue: event.newValue
             })
           )
-        }
-      
+        } 
       })
 
       //after set all event listeners connect me to the server

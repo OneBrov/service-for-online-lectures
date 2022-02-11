@@ -7,13 +7,13 @@ const AddMe = () => {
   const rtc = React.useContext(WebRTCContext)
   const ws  = React.useContext(WebSocketContext)
   const me = selectMe()
+  
   React.useEffect(()=>{
-
     if (ws.sendJoin && rtc?.session && !me) {
       ws.sendJoin(rtc.session.connection.connectionId)      
     }
-    
   },[ws.sendJoin, rtc?.session])
+
   return <></>
 }
   

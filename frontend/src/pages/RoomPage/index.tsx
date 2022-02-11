@@ -15,10 +15,10 @@ import { useParams } from 'react-router-dom'
 import { NotFoundPage } from '../NotFoundPage'
 
 export const RoomPage:React.FC = () => {
-
   const [userIsAuth, setUserIsAuth] = React.useState(false)
   const [isRoomExist, setIsRoomExist] = React.useState<boolean>(true)
   const { roomId } = useParams()
+
   React.useEffect(() => {
     checkRoomExist()
   }, [])
@@ -36,8 +36,6 @@ export const RoomPage:React.FC = () => {
     }
   }
 
-
-
   if (!isRoomExist) {
     return <NotFoundPage />
   }
@@ -49,10 +47,17 @@ export const RoomPage:React.FC = () => {
   return (
     <RoomProvider>
       <Box display="flex" height="100vh" width={'100vw'} overflow={'hidden'} >
-        <Box overflow={'auto'} className={styles.backgroundLogo} display={'flex'} flexDirection={'column'} flex='1 1 1px'  padding='20px'>
+        <Box 
+          className={styles.backgroundLogo}
+          overflow={'auto'} 
+          display={'flex'} 
+          flexDirection={'column'} 
+          flex='1 1 1px'  
+          padding='20px'
+        >
           <MainContent />
         </Box>
-        <Box  display='flex' flexDirection={'column'} flex='0 0 1px' minWidth='350px'>
+        <Box display='flex' flexDirection={'column'} flex='0 0 1px' minWidth='350px'>
           <Chat />
         </Box>      
       </Box>

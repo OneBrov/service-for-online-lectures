@@ -7,7 +7,6 @@ import { selectMe } from '../../../../../../store/usersSlice'
 import { UserType } from '../../../../../../utils/types/UserType'
 import { OvVideo } from './OvVideo'
 
-
 //add 
 interface UserVideoProps {
     streamManager: StreamManager
@@ -24,7 +23,6 @@ export const UserVideo:React.FC<UserVideoProps> = ({
     hasVideo && '/svg/enableCamera.svg'     || '/svg/disableCamera.svg'
   ]
 
- 
   return (
     <Box 
       display='flex' 
@@ -51,13 +49,10 @@ export const UserVideo:React.FC<UserVideoProps> = ({
           </Box>  
         )}
       </Box>
-
       <OvVideo streamManager={streamManager} />
-
       <Box position={'absolute'} 
         component={'span'}
-        sx={{ 
-          
+        sx={{  
           bottom: '0',  
           background: 'rgba(0, 0, 0, 0.5)',
           padding: 0.5,

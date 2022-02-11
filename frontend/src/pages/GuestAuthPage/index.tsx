@@ -23,7 +23,13 @@ export const GuestAuthPage:React.FC<GuestAuthProps> = ({
   }
 
   return (
-    <Box sx={{display: 'flex', flexDirection: 'column', flex: '1 1 100%', margin: 'auto'}}>
+    <Box 
+      sx={{
+        display: 'flex', 
+        flexDirection: 'column', 
+        flex: '1 1 100%', 
+        margin: 'auto'}}
+    >
       <Dialog open={true}>
         <DialogTitle> Ваши имя и фамилия </DialogTitle>
         <DialogContent>

@@ -14,10 +14,10 @@ interface ChatProps {
 }
 
 export const Chat:React.FC<ChatProps> =() => {
-  
   const WS = React.useContext(WebSocketContext)
   const users = useAppSelector(state => state.users.users)
   const messages = useAppSelector(state=>state.chat.messages)
+
   return (
     <Paper sx={{
       width: '350px',
@@ -27,11 +27,15 @@ export const Chat:React.FC<ChatProps> =() => {
       flex: '1 1 auto',
     }}>
       <BasicTabs content={[
-        {name: 'Чат', content: <Messages messages={messages} onSendMessage={WS.sendMessage} />},
-        {name: 'Участники', content: <Participants users={users} />},
+        { 
+          name: 'Чат', 
+          content: <Messages messages={messages} onSendMessage={WS.sendMessage} /> 
+        },
+        { 
+          name: 'Участники', 
+          content: <Participants users={users} /> 
+        },
       ]} />
-   
-
     </Paper>   
   )
 }

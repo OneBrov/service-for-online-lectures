@@ -54,7 +54,6 @@ export const BasicTabs:React.FC<BasicTabsProps> = ({
   
   return (
     <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-      
       <Box  sx={{ borderBottom: 1, borderColor: 'divider',}}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs">
           {content.map((tab, it) => 

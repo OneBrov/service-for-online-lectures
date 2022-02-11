@@ -4,9 +4,7 @@ import { OutlinedText } from '../../../../../components/OutlinedText'
 import { useAppSelector } from '../../../../../hooks/reduxHooks'
 
 export const SpeakersList = () => {
-  
   const users = useAppSelector(state => state.users.users)
-  
   const [speakerList, setSpeakerList] = React.useState<string[]>([])
 
   React.useEffect(() => {
@@ -15,9 +13,8 @@ export const SpeakersList = () => {
     setSpeakerList(speakers)
   },[users])
 
-
   return (
-    <Box sx={{display: 'flex',  marginTop: '20px', height: '20px'}}>
+    <Box sx={{ display: 'flex',  marginTop: '20px', height: '20px' }}>
       {speakerList.map(speaker => 
         <OutlinedText key={speaker}>
           {speaker}

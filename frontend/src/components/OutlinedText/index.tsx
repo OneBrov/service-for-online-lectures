@@ -15,7 +15,14 @@ export const OutlinedText:React.FC<OutlinedTextProps> = ({
   color = 'default'
 }) => {
   return (
-    <Box sx={{border: `1px solid ${colors[color]}`, borderRadius: '7px', paddingX: '10px', marginRight: '10px'}}>
+    <Box 
+      sx={{
+        border: `1px solid ${colors[color]}`, 
+        borderRadius: '7px', 
+        paddingX: '10px', 
+        marginRight: '10px'
+      }}
+    >
       <Typography variant='body2'>
         {children}
       </Typography>

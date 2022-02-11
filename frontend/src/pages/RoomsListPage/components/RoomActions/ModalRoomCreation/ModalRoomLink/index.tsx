@@ -11,7 +11,6 @@ export const ModalRoomLink: React.FC<ModalRoomLinkProps> = ({
   roomId, isOpen
 }) => {
   const [copyButtonText, setCopyButtonText] = React.useState<string>('Скопировать ссылку')
-
   const newRoomLink = `${window.location.href}/${roomId}`
 
   const addLinkToClipboard = () => {

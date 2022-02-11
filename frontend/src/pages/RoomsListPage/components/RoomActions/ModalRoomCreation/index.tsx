@@ -9,14 +9,9 @@ interface ModalRoomCreationProps {
     isOpen: boolean
 }
 
-
-
-
-
 export const ModalRoomCreation:React.FC<ModalRoomCreationProps> = ({
   onClose, isOpen
 }) => {
-
   const [roomName, setRoomName] = React.useState<string>('')
   const [subject, setSubject] = React.useState<string>('')
   const [submitMessage, setSubmitMessage] = React.useState<string>('')
@@ -47,7 +42,6 @@ export const ModalRoomCreation:React.FC<ModalRoomCreationProps> = ({
     } catch (e:any) {
       setErrorMessage(e?.response?.data.message || 'Сервер не отвечает!' )
     }
-   
   }
 
   return (
@@ -56,7 +50,6 @@ export const ModalRoomCreation:React.FC<ModalRoomCreationProps> = ({
             Создание комнаты
       </DialogTitle>
       <DialogContent dividers={true} >
-
         <div>
           <DialogContentText>
             Введите имя комнаты. С его помощью люди смогут найти вашу комнату
@@ -86,12 +79,10 @@ export const ModalRoomCreation:React.FC<ModalRoomCreationProps> = ({
             fullWidth
           />
         </div>
-
         <ModalRoomLink 
           isOpen={!!roomId} 
           roomId={roomId}
         />
-
       </DialogContent>
       <DialogActions>
         <Typography>

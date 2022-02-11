@@ -14,22 +14,37 @@ export const CameraList = () => {
     return users.find(user => user.RTCId === rtcId)
   }
 
-
   // отображаем сначала свою вебкамеру, а после всех остальных
   return (
-    <Grid minHeight={'200px'} container spacing={1} flex='1' marginTop={1}  >
+    <Grid
+      minHeight={'200px'} 
+      container 
+      spacing={1} 
+      flex='1' 
+      marginTop={1}  
+    >
       {rtc?.publisher && me && 
-          <Grid sm={6} md={6} lg={4} xl={3} item >
-            <UserVideo streamManager={rtc.publisher} user={me}/>
+          <Grid 
+            sm={6} md={6} lg={4} xl={3} 
+            item 
+          >
+            <UserVideo 
+              streamManager={rtc.publisher} 
+              user={me}
+            />
           </Grid>
       }
       {rtc?.subscribers.map((sub, i) =>
         sub.stream.connection.data !== 'screenPublisher' && 
         getUser(sub.stream.connection.connectionId) &&
-        <Grid xs={6} sm={6} md={6} lg={4} xl={3}  key={`camera-${i}-${sub.id}`} item >
+        <Grid 
+          xs={6} sm={6} md={6} lg={4} xl={3}  
+          key={`camera-${i}-${sub.id}`} 
+          item 
+        >
           <UserVideo 
             streamManager={sub} 
-            user={ getUser(sub.stream.connection.connectionId)}
+            user={getUser(sub.stream.connection.connectionId)}
           />
         </Grid>
       )}

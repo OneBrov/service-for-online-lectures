@@ -4,8 +4,6 @@ import { useAppSelector } from '../hooks/reduxHooks'
 import { MessageType } from '../utils/types/MessageType'
 import { UserType } from '../utils/types/UserType'
 
-
-
 interface UsersState {
   users: UserType[],
 }

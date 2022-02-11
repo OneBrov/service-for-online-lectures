@@ -1,13 +1,9 @@
 import React from 'react'
-import { Provider } from 'react-redux'
 import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom'
 import { MainLayout } from '../components/MainLayout'
-
 import { HomePage } from '../pages/HomePage'
-import { LoginPage } from '../pages/LoginPage'
 import { NotFoundPage } from '../pages/NotFoundPage'
 import { RoomPage } from '../pages/RoomPage'
-import { RoomProvider } from '../pages/RoomPage/providers/RoomProvider'
 import { RoomsListPage } from '../pages/RoomsListPage'
 
 
@@ -18,12 +14,9 @@ export const AppRouter = () => {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Navigate to={'home'} />} />
           <Route path="home" element={<HomePage />} />
-        
           <Route path="rooms" element={ <RoomsListPage /> } />
-
         </Route>
         <Route path="rooms/:roomId" element={<RoomPage />} />
-     
         <Route path="*" element={<NotFoundPage />}/>
       </Routes>
     </BrowserRouter>

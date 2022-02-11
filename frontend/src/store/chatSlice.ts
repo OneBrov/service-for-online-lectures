@@ -2,8 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '.'
 import { MessageType } from '../utils/types/MessageType'
 
-
-
 interface ChatState {
   messages: MessageType[]
 }
@@ -11,7 +9,6 @@ interface ChatState {
 const initialState: ChatState = {
   messages: [],
 }
-
 
 export const chatSlice = createSlice({
   name: 'chat',

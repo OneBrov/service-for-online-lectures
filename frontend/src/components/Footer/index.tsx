@@ -4,7 +4,6 @@ import React from 'react'
 export const Footer = () => {
   return (
     <Box marginTop={'auto'} marginBottom={2} component='footer'>
-   
       <Box display='flex' justifyContent={'center'}>
         <Box display={'flex'} flexDirection={'column'} justifyContent={'center'}>
           <Typography variant='caption'>
@@ -15,20 +14,19 @@ export const Footer = () => {
           </Typography>
         </Box>
         <Button 
-          sx={{textTransform: 'none', marginLeft: 3}}  
+          sx={{ textTransform: 'none', marginLeft: 3 }}  
           startIcon={<img src='/svg/github.svg'/>} 
-          href='https://github.com/OneBrov' 
-          variant='text'
+          href='https://github.com/OneBrov/service-for-online-lectures' 
+          variant='text' 
         >
-          <Link href={'https://github.com/OneBrov/service-for-online-lectures'}>
-            <Typography color={'primary'} variant='caption' >
+          <Typography 
+            color={'primary'} 
+            variant='caption' 
+          >
               Источник кода
-            </Typography>
-          </Link>
+          </Typography>
         </Button>
-
       </Box> 
-      
     </Box>
   )
 }

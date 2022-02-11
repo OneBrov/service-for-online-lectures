@@ -13,11 +13,9 @@ export const Messages:React.FC<MessagesProps> = ({
   messages, 
   onSendMessage
 }) => {
-
   const [message, setMessage] = React.useState<string>('')
   const lastMessage = React.useRef<null | HTMLDivElement>(null)
-
-
+  
   //when last message appears, scroll into it
   React.useEffect(()=>{ 
     if (lastMessage.current ) {
@@ -36,8 +34,6 @@ export const Messages:React.FC<MessagesProps> = ({
     }
   }
  
-  
-  
   return (
     <Box sx={{ minHeight: '0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
       <Stack
@@ -51,12 +47,13 @@ export const Messages:React.FC<MessagesProps> = ({
       >
         {messages?.map( ({name, text}, it) => 
           <Paper 
-            className={styles.message} ref={(it===(messages.length - 1)) ? lastMessage : null} 
+            className={styles.message} 
+            ref={(it===(messages.length - 1)) ? lastMessage : null} 
             key={it} //Add id to messages
-            sx={{lineHeight: '1.2'}} 
+            sx={{ lineHeight: '1.2' }} 
           >
             <Typography 
-              sx={{wordBreak: 'break-word'}} 
+              sx={{ wordBreak: 'break-word' }} 
               lineHeight="1.2" 
               color="primary"  
               variant="caption" 
@@ -66,7 +63,7 @@ export const Messages:React.FC<MessagesProps> = ({
             </Typography>
             <Typography 
               lineHeight="1" 
-              sx={{wordBreak: 'break-word'}} 
+              sx={{ wordBreak: 'break-word' }} 
               variant="caption" 
               display="inline"
             >
@@ -75,7 +72,7 @@ export const Messages:React.FC<MessagesProps> = ({
           </Paper>
         )}
       </Stack>
-      <Paper elevation={5} className={styles.inputBox} >
+      <Paper className={styles.inputBox} elevation={5}  >
         <TextField 
           onKeyDown={handlePressEnter}
           onChange={(e)=>setMessage(e.target.value)} 
@@ -83,8 +80,7 @@ export const Messages:React.FC<MessagesProps> = ({
           value={message} 
           margin="dense" 
           label="Cообщение"
-        />
-              
+        /> 
         <Button 
           sx={{
             marginY: '15px'
@@ -93,7 +89,7 @@ export const Messages:React.FC<MessagesProps> = ({
           variant="contained" 
           onClick={handleSendMessage}
         >
-      Отправить
+          Отправить
         </Button>
       </Paper>
     </Box>

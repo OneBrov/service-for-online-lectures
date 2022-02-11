@@ -35,21 +35,9 @@ export const WebSocketProvider:React.FC = ({ children }) => {
     )
     return () => {socket?.disconnect()}
   },[])
-  
-
-
 
   React.useEffect(()=>{
     if (socket && roomId !== undefined) {
-
-
-      // socket.emit('joinRoom', roomId, RTCId)
-      // const me = new User(username, socket.id, RTCId, true)
-      // console.log('===============ME=====================');
-      // console.log(me);
-      // console.log('====================================');
-      // dispatch(addUser(me))
-
 
       //WS EVENT LISTENERS
       socket.on('message', (msg) => {

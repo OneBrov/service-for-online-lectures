@@ -12,9 +12,7 @@ interface TemplateAuthProps  {
 export const TemplateAuth:React.FC<TemplateAuthProps> = ({
   isRegistration
 }) => {
-
   const authContext = React.useContext(AuthContext)
-
   const [username, setUsername] = React.useState<string>('')
   const [password, setPassword] = React.useState<string>('')
   const [fullName, setFullName] = React.useState<string>('')
@@ -50,15 +48,14 @@ export const TemplateAuth:React.FC<TemplateAuthProps> = ({
       sx={{ 'p': 1, }} 
     >
       <DialogTitle> {isRegistration ? 'Регистрация' : 'Авторизация'} </DialogTitle>
-      <DialogContent sx={{minHeight: 250}} >
+      <DialogContent sx={{ minHeight: 250 }} >
         <DialogContentText>
           { isRegistration 
             ? 'Если у вас нет аккаунта, то вы можете зарегистрироваться здесь' 
             : 'Если у вас уже есть аккаунт, вы можете авторизироваться'
           }
         </DialogContentText>
-
-        {isRegistration &&
+        {isRegistration && //Maybe, refactor fields to one array
           <TextField
             value={fullName}
             onChange={(e)=> setFullName(e.target.value)}
@@ -73,7 +70,6 @@ export const TemplateAuth:React.FC<TemplateAuthProps> = ({
             variant="standard"
           />
         }
-
         <TextField
           autoFocus={!isRegistration}
           value={username}
@@ -110,7 +106,6 @@ export const TemplateAuth:React.FC<TemplateAuthProps> = ({
     </Box>
   )
 }
-
 
 const Registration = () => {
   return (

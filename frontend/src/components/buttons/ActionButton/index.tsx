@@ -17,10 +17,16 @@ export const ActionButton:React.FC<ActionButtonProps> = ({
   
   return (
     <Tooltip title={isActive ? activeTooltip : notActiveTooltip}>
-      <IconButton onClick={onClick} className={styles.buttonBackground}>
+      <IconButton 
+        onClick={onClick} 
+        className={styles.buttonBackground}
+      >
         <img 
           src={isActive ? activeSrc : notActiveSrc}  
-          width={48} height={48} alt={isActive ? activeTooltip : notActiveTooltip }/>     
+          width={48} 
+          height={48} 
+          alt={isActive ? activeTooltip : notActiveTooltip }
+        />     
       </IconButton>
     </Tooltip>
   )
