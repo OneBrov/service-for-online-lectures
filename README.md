@@ -9,7 +9,7 @@ The project is divided into 3 parts:
 
 2) Server part (backend) - Nestjs server (NodeJS), for processing API requests, as well as for creating records in the database (MongoDB)
 
-3) Open view server. Used as a WebRTS media server. This part is not presented in this repository.
+3) Openvidu server. Used as a WebRTS media server. This part is not presented in this repository.
 You can download openvidu server here https://hub.docker.com/r/openvidu/openvidu-server-kms (for local development). You can get acquainted with openvidu here https://docs.openvidu.io/en/stable/
 
 This work was done as part of my thesis at the institute
