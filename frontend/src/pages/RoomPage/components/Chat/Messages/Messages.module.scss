@@ -1,0 +1,12 @@
+.message {
+    padding: 5px 10px;
+}
+
+.inputBox {
+    min-height: 0;
+    max-height: 100px;
+    width: 350px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}

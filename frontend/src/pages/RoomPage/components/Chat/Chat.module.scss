@@ -1,0 +1,20 @@
+.container {
+    width: 350px;
+    height: 100%;
+    display: flex;
+    flex: '1 1';
+    
+
+}
+
+.message {
+    padding: 5px 10px;
+}
+
+.inputBox {
+    max-height: 100px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+

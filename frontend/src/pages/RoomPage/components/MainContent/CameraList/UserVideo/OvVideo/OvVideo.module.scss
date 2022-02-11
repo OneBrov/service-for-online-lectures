@@ -1,0 +1,7 @@
+.screenSharingControls {
+    &::-webkit-media-controls-play-button, 
+    &::-webkit-media-controls-timeline,
+    &::-webkit-media-controls-current-time-display {
+        display: none;
+    }
+}
