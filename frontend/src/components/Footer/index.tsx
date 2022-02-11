@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Button, Link, Typography } from '@mui/material'
 import React from 'react'
 
 export const Footer = () => {
@@ -20,9 +20,11 @@ export const Footer = () => {
           href='https://github.com/OneBrov' 
           variant='text'
         >
-          <Typography color={'primary'} variant='caption' >
+          <Link href={'https://github.com/OneBrov/service-for-online-lectures'}>
+            <Typography color={'primary'} variant='caption' >
               Источник кода
-          </Typography>
+            </Typography>
+          </Link>
         </Button>
 
       </Box> 
