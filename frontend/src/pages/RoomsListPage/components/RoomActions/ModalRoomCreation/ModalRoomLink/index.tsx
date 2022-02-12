@@ -1,14 +1,15 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Tooltip, Typography } from '@mui/material'
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 interface ModalRoomLinkProps {
     roomId: string
     isOpen: boolean
+    onClose?: ()=>void
 }
 
 export const ModalRoomLink: React.FC<ModalRoomLinkProps> = ({
-  roomId, isOpen
+  roomId, isOpen, onClose
 }) => {
   const [copyButtonText, setCopyButtonText] = React.useState<string>('Скопировать ссылку')
   const newRoomLink = `${window.location.href}/${roomId}`
@@ -19,7 +20,7 @@ export const ModalRoomLink: React.FC<ModalRoomLinkProps> = ({
   }
 
   return (
-    <Dialog open={isOpen}>
+    <Dialog open={isOpen} onClose={onClose}>
       <DialogTitle>
         Ссылка на созданную комнату
       </DialogTitle>

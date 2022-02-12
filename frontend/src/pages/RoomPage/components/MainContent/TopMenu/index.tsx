@@ -5,9 +5,6 @@ import React, { useContext } from 'react'
 import { ActionButton } from '../../../../../components/buttons/ActionButton'
 import { WebRTCContext } from '../../../providers/WebRTCProvider'
 
-
-
-
 export const TopMenu = () => {
   const [steamEnabled, setStreamEnabled] = React.useState<boolean>(false)
   const [microphoneEnabled, setMicrophoneEnabled] = React.useState<boolean>(false)
@@ -33,6 +30,7 @@ export const TopMenu = () => {
     const streamAlreadyRun = rtc.subscribers.find(user=>user.stream.connection.data === 'screenPublisher')
     if (streamAlreadyRun && !steamEnabled) {
       alert('В данный момент кто-то уже ведет трансляюцию экрана')
+      return
     }
     if (rtc?.toggleScreenSharing) {
       rtc?.toggleScreenSharing(!steamEnabled)

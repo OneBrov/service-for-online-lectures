@@ -33,9 +33,9 @@ export class RoomsService {
     return rooms;
   }
 
-  async createRoom(name: string, subject: string, userToken: string) {
-    const admin = await this.usersService.getUserByToken(userToken);
-    const roomWithSameName = await this.roomsModel.find({ name: name });
+  async createRoom(name: string, subject: string, userId: string) {
+    const admin = await this.usersService.getUserById(userId);
+    const roomWithSameName = await this.roomsModel.findOne({ name: name });
     if (roomWithSameName) {
       throw new BadRequestException('Комната с введенным именем уже существует!')
     }

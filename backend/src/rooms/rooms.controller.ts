@@ -7,8 +7,10 @@ import {
   Param,
   Post,
   Query,
+  Req,
   UseGuards,
 } from '@nestjs/common';
+import { TokenUserDto } from 'src/users/dto/user.dto';
 import { JwtAuthGuard } from 'src/users/jwt-auth.guard';
 import { RoomDto } from './dto/room.dto';
 import { RoomsService } from './rooms.service';
@@ -43,14 +45,12 @@ export class RoomsController {
 
   @UseGuards(JwtAuthGuard)
   @Post()
-  async createRoom(
-    @Body() dto: RoomDto,
-    @Headers('Authorization') auth: string,
-  ) {
+  async createRoom(@Body() dto: RoomDto, @Req() req: any) {
+    const user = req.user as TokenUserDto;
     const room = await this.roomsService.createRoom(
       dto.name,
       dto.subject,
-      auth.split(' ')[1],
+      user.userId,
     );
 
     return room.id;

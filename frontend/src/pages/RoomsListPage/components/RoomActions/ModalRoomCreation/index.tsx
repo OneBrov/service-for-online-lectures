@@ -82,6 +82,7 @@ export const ModalRoomCreation:React.FC<ModalRoomCreationProps> = ({
         <ModalRoomLink 
           isOpen={!!roomId} 
           roomId={roomId}
+          onClose={onClose}
         />
       </DialogContent>
       <DialogActions>

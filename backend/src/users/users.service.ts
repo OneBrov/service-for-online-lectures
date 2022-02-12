@@ -71,8 +71,8 @@ export class UsersService {
     return this.jwtService.sign(userPayload);
   }
 
-  async getUserByToken(token: string) {
-    const user = this.jwtService.decode(token) as any;
-    return await this.usersModel.findById(user.userId);
+  async getUserById(userId: string) {
+    const user = await this.usersModel.findById(userId);
+    return user;
   }
 }
