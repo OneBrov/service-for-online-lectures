@@ -37,7 +37,9 @@ export class RoomsService {
     const admin = await this.usersService.getUserById(userId);
     const roomWithSameName = await this.roomsModel.findOne({ name: name });
     if (roomWithSameName) {
-      throw new BadRequestException('Комната с введенным именем уже существует!')
+      throw new BadRequestException(
+        'Комната с введенным именем уже существует!',
+      );
     }
     return await this.roomsModel.create({
       name: name,
