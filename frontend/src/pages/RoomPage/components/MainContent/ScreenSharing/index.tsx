@@ -1,8 +1,8 @@
 import { Box } from '@mui/system'
 import React, { useContext } from 'react'
 import { WebRTCContext } from '../../../providers/WebRTCProvider'
-import { UserVideo } from '../CameraList/UserVideo'
-import { OvVideo } from '../CameraList/UserVideo/OvVideo'
+import { OvMedia } from '../../../../../components/OvMedia'
+import styles from './ScreenSharing.module.scss'
 
 export const ScreenSharing = () => {
   const rtc = React.useContext(WebRTCContext)
@@ -12,17 +12,17 @@ export const ScreenSharing = () => {
   return (
     <Box display='flex' flexDirection={'column'} flex='1 1 1px' maxWidth={'100%'}  >
       {screenSharingManager 
-        ? <OvVideo 
+        ? <OvMedia 
           muted={true} 
           aspectRatio='16/9'
-          isFullscreen={true}
           streamManager={screenSharingManager }
+          className={styles.screenShare}
         />
         : screenSharingSub &&
-        <OvVideo 
+        <OvMedia 
           aspectRatio='16/9'
-          isFullscreen={true}
           streamManager={screenSharingSub}
+          className={styles.screenShare}
         />
       }
     </Box>

@@ -5,7 +5,8 @@ import React from 'react'
 import { useAppSelector } from '../../../../../../hooks/reduxHooks'
 import { selectMe } from '../../../../../../store/usersSlice'
 import { UserType } from '../../../../../../utils/types/UserType'
-import { OvVideo } from './OvVideo'
+import { NameInCircle } from './NameInCircle'
+import { OvMedia } from '../../../../../../components/OvMedia'
 
 //add 
 interface UserVideoProps {
@@ -49,7 +50,21 @@ export const UserVideo:React.FC<UserVideoProps> = ({
           </Box>  
         )}
       </Box>
-      <OvVideo streamManager={streamManager} />
+  
+      <OvMedia streamManager={streamManager} />
+     
+      {!hasVideo &&
+         <Box sx={{
+           position: 'absolute',
+           left: '50%',
+           top: '50%', 
+           marginRight: '-50%',                       
+           transform: 'translate(-50%, -50%)'
+         }}>
+           <NameInCircle name={user?.username || 'unknown'} />
+         </Box>
+      }
+      
       <Box position={'absolute'} 
         component={'span'}
         sx={{  

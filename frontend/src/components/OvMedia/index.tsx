@@ -2,18 +2,18 @@ import { Box, CircularProgress, Grid } from '@mui/material'
 import { height } from '@mui/system'
 import { StreamManager } from 'openvidu-browser'
 import React, { useRef } from 'react'
-import styles from './OvVideo.module.scss'
+import styles from './OvMedia.module.scss'
 
 
-interface OvVideoProps {
+interface OvMediaProps {
     streamManager: StreamManager
     muted?: boolean,
     aspectRatio?: string,
-    isFullscreen? : boolean
+    className?: string
 }
 
-export const OvVideo:React.FC<OvVideoProps> = ({
-  streamManager, muted, aspectRatio = '4/3', isFullscreen = false
+export const OvMedia:React.FC<OvMediaProps> = ({
+  streamManager, muted, aspectRatio = '4/3', className = ''
 }) => {
   const videoRef = React.useRef<HTMLVideoElement>(null)
 
@@ -21,16 +21,19 @@ export const OvVideo:React.FC<OvVideoProps> = ({
     if (videoRef.current) {
       streamManager.addVideoElement(videoRef.current)
       videoRef.current.controls = true
-      videoRef.current.poster='/svg/illustrations/cameraLoadingSceleton.svg'
     }
   },[videoRef])
 
+
+
   return <Box 
     display={'flex'} 
-    flex='1 1 1px' 
-    justifyContent={'center'}   
-    maxWidth={'100%'} 
-    maxHeight={'100%'}  
+    position={'relative'}
+    flexDirection='row'
+    justifyContent={'center'}  
+    width='100%' 
+    height={'100%'}
+    flex='1 1'
     sx={{
       background: '#202020'
     }}
@@ -39,16 +42,18 @@ export const OvVideo:React.FC<OvVideoProps> = ({
       muted={muted || false}
       controls
       id='screenSharing'
-      height={'100%'}
+      width={'100%'}
       autoPlay={true} 
       ref={videoRef}
-      className={styles.screenSharingControls}
+
+      className={`
+        ${styles.screenSharingControls} ${className}
+      `}
       style={{
-        display: 'flex',
-        aspectRatio: aspectRatio, 
-        maxWidth: '100%',
-        maxHeight: '100%',
+        height: '100%',
+        width:  '100%',
         objectFit: 'contain',
+        aspectRatio: aspectRatio, 
         background: '#202020',
       }} 
     >
